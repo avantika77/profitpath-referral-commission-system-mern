@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+    <link rel="stylesheet" href="css/register.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+<header class="header">
+  <div class="logo">💰 ProfitPath</div>
+  <div class="header-right"></div>
+</header>
+
+<div class="wrapper">
+  <div class="container">
+
+    <h2>Create Account ✨</h2>
+    <p class="subtitle">Join the referral system</p>
+
+    <form id="registerForm">
+
+      <div class="input-box">
+        <i class="fa fa-user"></i>
+        <input type="text" id="name" placeholder="Full Name" required>
+      </div>
+
+      <div class="input-box">
+        <i class="fa fa-envelope"></i>
+        <input type="email" id="email" placeholder="Email" required>
+      </div>
+
+      <div class="input-box">
+        <i class="fa fa-lock"></i>
+        <input type="password" id="password" placeholder="Password" required>
+      </div>
+
+      <div class="input-box">
+        <select id="role">
+          <option value="mediator">Mediator</option>
+          <option value="customer">Customer</option>
+        </select>
+      </div>
+
+      <div class="input-box" id="referralBox">
+        <i class="fa fa-link"></i>
+        <input type="text" id="refInput" placeholder="Enter referral code">
+      </div>
+
+      <button type="submit">Register</button>
+
+    </form>
+
+    <p class="bottom-text">
+      Already registered? <a href="login.html">Login here</a>
+    </p>
+
+  </div>
+</div>
+
+<script src="register.js"></script>
+<!--
+Name   : Avantika Shrivastava
+Course : B.Tech (CSE) Department 
+Project: Referral Commission System
+Year   : 2026
+
+-->
+<script>
+  const roleSelect = document.getElementById("role");
+  const referralBox = document.getElementById("referralBox");
+
+  function toggleReferralBox() {
+    if (roleSelect.value === "customer") {
+      referralBox.style.display = "flex"; // show
+    } else {
+      referralBox.style.display = "none"; // hide
+    }
+  }
+
+  // Run on load + change
+  toggleReferralBox();
+  roleSelect.addEventListener("change", toggleReferralBox);
+
+ 
+  const params = new URLSearchParams(window.location.search);
+  const ref = params.get("ref");
+
+  if (ref) {
+    document.getElementById("refInput").value = ref;
+  }
+</script>
+<div class="footer">
+  Built by - Avantika Shrivastava<br>
+  Enrollment No:JNU-jpr-2023/01939 
+
+</div>
+</body>
+</html>

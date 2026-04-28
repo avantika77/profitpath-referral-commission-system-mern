@@ -1,0 +1,171 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Mediator Pro Dashboard</title>
+<link rel="stylesheet" href="css/mediator.css">
+</head>
+<body>
+
+<div class="sidebar">
+  <h2>Mediator Dashboard</h2>
+
+  <ul>
+    <li onclick="showSection('overview')">Dashboard</li>
+    <li onclick="showSection('referrals')">Referrals</li>
+    <li onclick="showSection('tools')">Referral Tools</li>
+    <li onclick="showSection('commission')">Commissions</li>
+    <li onclick="showSection('payout')">Payout</li>
+    <li onclick="showSection('analytics')">Analytics</li>
+    <li onclick="showSection('leads')">Leads</li>
+    <li onclick="showSection('notifications')">Notifications</li>
+    <li onclick="showSection('profile')">Profile</li>
+    <li onclick="logout()" style="color:#ffffff;">Logout</li>
+  </ul>
+</div>
+
+<div class="main">
+
+<div id="overview" class="section">
+  <h2>Dashboard Overview</h2>
+
+  <h3 id="welcomeText">Welcome User</h3>
+
+  <div class="cards">
+    <div class="card green">₹<span id="earn">0</span><p>Total Earnings</p></div>
+    <div class="card orange">₹<span id="pending">0</span><p>Pending</p></div>
+    <div class="card blue">₹<span id="paid">0</span><p>Paid</p></div>
+    <div class="card purple"><span id="refs">0</span><p>Total Referrals</p></div>
+    <div class="card dark"><span id="conversion">0%</span><p>Conversion Rate</p></div>
+  </div>
+
+  <div class="dashboard-grid">
+
+    <div class="box">
+      <h3>Recent Referrals</h3>
+      <table>
+        <thead>
+          <tr><th>Name</th><th>Status</th><th>₹</th></tr>
+        </thead>
+        <tbody id="recentRef"></tbody>
+      </table>
+    </div>
+
+    <div class="box">
+  <h3>Commission Summary</h3>
+  <p>Total Earned: ₹<span id="totalCom">0</span></p>
+  <p>Pending: ₹<span id="pending2">0</span></p>
+  <p>Paid: ₹<span id="paid2">0</span></p>
+
+  <p style="color:green; font-weight:bold;">
+    Shop Commission: ₹<span id="shopEarn">0</span>
+  </p>
+</div>
+<!--
+Name   : Avantika Shrivastava
+Course : B.Tech (CSE) Department 
+Project: Referral Commission System
+Year   : 2026
+
+-->
+    <div class="box">
+      <h3>Payout Status</h3>
+      <p>Last Withdrawal: ₹500</p>
+      <p>Status: Completed</p>
+      <button onclick="showSection('payout')">Request New</button>
+    </div>
+
+    <div class="box">
+      <h3>Referral Code</h3>
+      <input id="refCode" readonly />
+      <button onclick="copyCode()">Copy Code</button>
+      <button onclick="shareWhatsApp()">WhatsApp</button>
+    </div>
+
+    <div class="box">
+      <h3>Leads Overview</h3>
+      <p>Total Leads: <span id="leadCount">0</span></p>
+      <p>Follow-ups Pending: <span id="leadPending">0</span></p>
+    </div>
+
+    <div class="box">
+      <h3>Recent Activity</h3>
+      <ul id="activityList">
+        <li>No activity yet</li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+<div id="referrals" class="section hidden">
+  <h2>Referral Management</h2>
+  <input id="search" placeholder="Search..." onkeyup="searchTable()">
+  <table>
+    <thead>
+      <tr><th>Name</th><th>Status</th><th>Date</th><th>Amount</th></tr>
+    </thead>
+    <tbody id="refTable"></tbody>
+  </table>
+</div>
+
+<div id="tools" class="section hidden">
+  <h2>Referral Tools</h2>
+  <p>Your Referral Code:</p>
+  <input id="refCode2" readonly>
+  <button onclick="copyCode()">Copy Code</button>
+  <button onclick="shareWhatsApp()">WhatsApp</button>
+</div>
+
+<div id="commission" class="section hidden">
+  <h2>Commission</h2>
+  <p>Type: Fixed ₹100 + 10%</p>
+  <p>Total Earned: ₹<span id="totalCom2">0</span></p>
+</div>
+
+<div id="payout" class="section hidden">
+  <h2>Payout</h2>
+  <select id="method">
+    <option>UPI</option>
+    <option>Bank</option>
+  </select>
+  <button onclick="withdraw()">Withdraw</button>
+  <p id="payoutMsg"></p>
+</div>
+
+<div id="analytics" class="section hidden">
+  <h2>Analytics</h2>
+  <p>Conversion Rate: <span id="conversion2">0%</span></p>
+</div>
+
+<div id="leads" class="section hidden">
+  <h2>Lead Management</h2>
+  <input placeholder="Add lead name">
+  <button>Add</button>
+</div>
+
+<div id="notifications" class="section hidden">
+  <h2>Notifications</h2>
+  <ul>
+    <li>New referral signup</li>
+    <li>Commission approved</li>
+    <li>Payout processed</li>
+  </ul>
+</div>
+
+<div id="profile" class="section hidden">
+  <h2>Profile</h2>
+  <input placeholder="Name"><br><br>
+  <input placeholder="Email"><br><br>
+  <input placeholder="UPI"><br><br>
+  <button>Save</button>
+</div>
+
+</div>
+
+<script src="mediator.js"></script>
+
+</body>
+</html>
+```

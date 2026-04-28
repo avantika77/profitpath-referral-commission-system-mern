@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+
+    <link rel="stylesheet" href="css/login.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+<header class="header">
+  <div class="logo">💰 ProfitPath</div>
+  <div class="header-right"></div>
+</header>
+<div class="wrapper">
+  <div class="container">
+
+    <h2>Welcome Back 👋</h2>
+    <p class="subtitle">Login to continue</p>
+
+    <form id="loginForm">
+
+      <div class="input-box">
+        <i class="fa fa-envelope"></i>
+        <input id="email" type="email" placeholder="Email" required>
+      </div>
+
+      <div class="input-box">
+        <i class="fa fa-lock"></i>
+        <input id="password" type="password" placeholder="Password" required>
+      </div>
+
+      <div class="input-box">
+        <select id="role">
+          <option value="mediator">Mediator</option>
+          <option value="customer">Customer</option>
+        </select>
+      </div>
+
+      <div class="input-box" id="refBox" style="display: none;">
+        <i class="fa fa-link"></i>
+        <input type="text" id="referralCode" placeholder="Enter Referral Code">
+      </div>
+
+      <button type="submit">Login</button>
+
+    </form>
+
+    <p class="bottom-text">
+      New user? <a href="register.html">Register here</a>
+    </p>
+
+  </div>
+</div>
+<form id="loginForm">
+
+  <input id="email" type="email" placeholder="Email" required><br><br>
+
+  <input id="password" type="password" placeholder="Password" required><br><br>
+
+  <select id="role">
+    <option value="mediator">Mediator</option>
+    <option value="customer">Customer</option>
+  </select><br><br>
+
+  <div id="refBox" style="display:none;">
+    <input type="text" id="referralCode" placeholder="Enter Referral Code">
+  </div><br>
+
+  <button type="submit">Login</button>
+
+</form>
+
+<script src="login.js"></script>
+<div class="footer">
+  Built by - Avantika Shrivastava<br>
+  Enrollment No:JNU-jpr-2023/01939 
+</div>
+</body>
+</html>

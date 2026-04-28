@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Referral Dashboard</title>
+  <link rel="stylesheet" href="./css/customer.css">
+</head>
+<body>
+<nav class="navbar">
+  <div class="logo">💰ProfitPath </div>
+
+  <ul class="nav-links">
+    <li><button onclick="navigate('overview')">Home</button></li>
+    <li><button onclick="navigate('referral')">Refer</button></li>
+    <li><button onclick="navigate('performance')">Stats</button></li>
+    <li><button onclick="navigate('wallet')">Wallet</button></li>
+    <li><button onclick="navigate('shop')">Shop</button></li>
+  </ul>
+
+  <div class="nav-right">
+    <button class="logout-btn" onclick="logout()">Logout</button>
+  </div>
+</nav>
+<div class="container">
+  <section id="overview" class="home">
+    <!-- HERO -->
+    <div class="hero">
+     <h1>Welcome back, <span id="userName"></span></h1>
+      <p>Start earning by sharing your referral link</p>
+    <br>
+      <button onclick="navigate('referral')">🚀 Invite Friends</button>
+    </div>
+
+    <div class="stats-grid">
+
+      <div class="stat-card">
+        <h2>₹5000</h2>
+        <p>Total Earnings</p>
+      </div>
+
+      <div class="stat-card">
+        <h2>₹3000</h2>
+        <p>Wallet Balance</p>
+      </div>
+
+      <div class="stat-card">
+        <h2>50</h2>
+        <p>Referrals</p>
+      </div>
+
+      <div class="stat-card">
+        <h2>10%</h2>
+        <p>Conversion</p>
+      </div>
+
+    </div>
+
+    <div class="actions">
+
+      <div class="action-card">
+        <h3>🔗 Share Referral</h3>
+        <p>Invite friends and earn instantly</p>
+        <button onclick="navigate('referral')">Share Now</button>
+      </div>
+
+      <div class="action-card">
+        <h3>💰 Withdraw Money</h3>
+        <p>Transfer earnings to your bank/UPI</p>
+        <button onclick="navigate('withdraw')">Withdraw</button>
+      </div>
+
+      <div class="action-card">
+        <h3>📊 View Performance</h3>
+        <p>Track clicks, signups, conversions</p>
+        <button onclick="navigate('performance')">View Stats</button>
+      </div>
+
+    </div>
+
+  </section>
+
+  <section id="referral" class="card">
+    <h2>Referral System</h2>
+    <p>Code: <b id="refCode">ABC123</b></p>
+    <p>Link: <span id="refLink">https://example.com/ref/ABC123</span></p>
+    <button onclick="copyLink()">Copy Link</button>
+    <button onclick="shareWhatsApp()">Share WhatsApp</button>
+  </section>
+
+  <section id="performance" class="card">
+    <h2>Performance</h2>
+    <p>Clicks: 500</p>
+    <p>Signups: 50</p>
+    <p>Conversions: 10%</p>
+    <p>Earnings per referral: ₹100</p>
+  </section>
+  <section id="wallet" class="card">
+    <h2>Wallet</h2>
+    <p>Total Balance: ₹3000</p>
+    <p>Pending: ₹2000</p>
+    <p>Withdrawable: ₹1000</p>
+    <button onclick="navigate('withdraw')">Withdraw</button>
+  </section>
+  <section id="withdraw" class="card">
+    <h2>Withdraw</h2>
+    <input type="number" id="amount" placeholder="Enter amount">
+    <select id="method">
+      <option>UPI</option>
+      <option>Bank</option>
+    </select>
+    <button onclick="requestWithdraw()">Request</button>
+    <p id="status"></p>
+  </section>
+  <section id="notifications" class="card">
+    <h2>Notifications</h2>
+    <div id="notificationsBox"></div>
+  </section>
+
+
+<section id="shop" class="card">
+  <h2>🛒 Smart Shop</h2>
+
+  <div class="shop-header">
+    <input type="text" placeholder="Search products..." id="searchBox" onkeyup="searchProducts()">
+  </div>
+<!--
+Name   : Avantika Shrivastava
+Course : B.Tech (CSE) Department 
+Project: Referral Commission System
+Year   : 2026
+
+-->
+  <div class="shop-grid" id="productList"></div>
+
+  <div class="cart-section">
+    <h3>🧾 Your Cart</h3>
+    <div id="cartBox"></div>
+
+    <h3 id="totalAmount">Total: ₹0</h3>
+    <h3 id="commissionAmount">Commission: ₹0</h3>
+
+    <button onclick="openPayment()">Proceed to Pay</button>
+  </div>
+
+  <div id="paymentModal" class="modal">
+    <div class="modal-content">
+      <h3>💳 Payment Gateway</h3>
+
+      <select>
+        <option>UPI</option>
+        <option>Debit Card</option>
+      </select>
+
+      <input type="text" placeholder="Enter Payment Details">
+
+      <button onclick="completePayment()">Pay Now</button>
+      <button onclick="closePayment()">Cancel</button>
+    </div>
+  </div>
+
+  <p id="purchaseStatus"></p>
+</section>
+
+<script src="customer.js"></script>
+</body>
+</html>
