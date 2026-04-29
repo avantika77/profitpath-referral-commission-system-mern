@@ -104,7 +104,8 @@ This project is licensed under the MIT License.
 
 ## 🙌 Author
 
-AVANTIKA SHRIVASTAVA
+Avantika Shrivastava
+
 GitHub: https://github.com/avantika77
 
 ---
